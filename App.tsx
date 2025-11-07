@@ -7,9 +7,10 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import RootNavigator from './src/navigation/RootNavigator';
-import { NavigationContainer } from '@react-navigation/native';
+//import RootNavigator from './src/navigation/RootNavigator';
+//import { NavigationContainer } from '@react-navigation/native';
 import { SheetProvider } from 'react-native-actions-sheet';
+import HomeScreen from './src/screens/HomeScreen';
 
 import './global.css';
 
@@ -30,9 +31,10 @@ function App() {
 
 function AppContent() {
   return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
+    <HomeScreen />
+    // <NavigationContainer>
+    //   <RootNavigator />
+    // </NavigationContainer>
   );
 }
 

@@ -1,13 +1,14 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { View, Text, TouchableOpacity, Dimensions, Button } from 'react-native';
-import { cardColors, boxColors } from '../lib/colors';
-import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
+import { cardColors, boxColors } from '../../lib/colors';
+import BottomSheet from '../BottomSheet';
 
 interface CardProps {
-  getValue: (cardIndex: number, boxIndex: number) => string | null;
+  getValue: (cardIndex: number, boxIndex: number) => string;
   onCardPress?: () => void;
   onBoxPress?: (boxIndex: number) => void;
   maxWidth?: number;
+  handleChange: (key: string, value: string) => void;
 }
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -20,20 +21,13 @@ export default function Card({
   getValue,
   onCardPress,
   onBoxPress,
+  handleChange,
   maxWidth = CARD_MAX_WIDTH,
 }: CardProps) {
   const [cardIndex, setCardIndex] = useState(4);
   const cardWidth = Math.min(maxWidth, screenWidth - 32);
   const availableWidth = cardWidth - PADDING * 2 - BORDER_WIDTH * 2;
   const boxSize = (availableWidth - GAP * 2) / 3;
-
-  // BottomSheet 설정
-
-  const actionSheetRef = useRef<ActionSheetRef>(null);
-
-  const openActionSheet = useCallback(() => {
-    actionSheetRef.current?.show();
-  }, []);
 
   const handleCardPress = () => {
     if (cardIndex !== 4 && onCardPress) {
@@ -98,7 +92,7 @@ export default function Card({
                 >
                   {value ? (
                     <Text
-                      className={`w-full text-center ${
+                      className={`w-full text-center text-zinc-700 ${
                         isCenter && boxIndex === 4
                           ? 'text-2xl'
                           : isCenter && boxIndex !== 4
@@ -124,21 +118,23 @@ export default function Card({
           })}
         </View>
       </TouchableOpacity>
-
-      {/* BottomSheet를 열기 위한 버튼 */}
-      <TouchableOpacity
-        onPress={openActionSheet}
-        className="mt-4 bg-blue-500 rounded-lg py-3 px-6 items-center"
-      >
-        <Text className="text-white font-semibold text-base">열기</Text>
-      </TouchableOpacity>
-
-      {/* BottomSheet */}
-      <ActionSheet ref={actionSheetRef}>
-        <Text>Hi, I am here.</Text>
-
-        <Button title="Close" onPress={() => actionSheetRef.current?.hide()} />
-      </ActionSheet>
+      <View className="flex-row justify-center gap-2">
+        <BottomSheet
+          cardIndex={cardIndex}
+          getValue={getValue}
+          handleChange={handleChange}
+        />
+        {cardIndex !== 4 && (
+          <TouchableOpacity
+            onPress={() => setCardIndex(4)}
+            className="mt-5 bg-rose-300 rounded-lg py-3 px-6 items-center"
+          >
+            <Text className="text-white font-semibold text-base">
+              중앙카드로 이동
+            </Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 }
