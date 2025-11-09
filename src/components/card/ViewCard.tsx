@@ -43,8 +43,8 @@ export default function ViewCard({ cardIndex, cardSize, getValue }: Props) {
 
   return (
     <View
-      className={`rounded-md border ${
-        cardColors[cardIndex] || 'bg-white border-gray-200'
+      className={`rounded-sm border ${
+        cardIndex !== 4 ? cardColors[cardIndex] : 'bg-zinc-200 border-zinc-100'
       }`}
       style={{
         width: cardSize,
