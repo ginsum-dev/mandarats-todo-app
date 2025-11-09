@@ -117,9 +117,9 @@ export default function Card({
                           ? 'text-xl'
                           : 'text-base'
                       }`}
-                      numberOfLines={isCenter ? 2 : 3}
+                      numberOfLines={3}
                       ellipsizeMode="tail"
-                      style={{ lineHeight: 20 }}
+                      style={{ lineHeight: isCenter ? 22 : 20 }}
                     >
                       {value}
                     </Text>

@@ -2,8 +2,15 @@ import { Text, View } from 'react-native';
 import EditMode from '../components/EditMode';
 import { useState } from 'react';
 import ViewMode from '../components/ViewMode';
+import { MandaratData } from '../types/dataType';
 
-export default function HomeScreen() {
+export default function HomeScreen({
+  data,
+  setData,
+}: {
+  data: MandaratData;
+  setData: (data: MandaratData) => void;
+}) {
   const [mode, setMode] = useState<'edit' | 'view'>('edit');
 
   return (
@@ -13,9 +20,9 @@ export default function HomeScreen() {
       </Text>
       <View className="flex-col items-center justify-center">
         {mode === 'edit' ? (
-          <EditMode setMode={setMode} />
+          <EditMode setMode={setMode} data={data} setData={setData} />
         ) : (
-          <ViewMode setMode={setMode} />
+          <ViewMode setMode={setMode} data={data} />
         )}
       </View>
     </View>

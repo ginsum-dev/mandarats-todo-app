@@ -86,7 +86,7 @@ export default function ViewCard({ cardIndex, cardSize, getValue }: Props) {
                       ? 'font-semibold'
                       : ''
                   }`}
-                  numberOfLines={isCenter ? 2 : 3}
+                  numberOfLines={3}
                   ellipsizeMode="tail"
                   style={
                     isCenter && isBoxCenter
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     borderWidth: BOX_BORDER_WIDTH,
   },
   valueText: {
-    lineHeight: 20,
+    lineHeight: 15,
   },
   valueTextSmall: {
     lineHeight: 10,

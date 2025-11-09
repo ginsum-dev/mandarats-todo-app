@@ -1,21 +1,19 @@
 import { View } from 'react-native';
 import Card from './card/EditCard';
-import { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-interface MandaratData {
-  [key: string]: string;
-}
-
-const STORAGE_KEY = 'madaratData';
+import { MandaratData } from '../types/dataType';
+import { STORAGE_KEY } from '../lib/constant';
 
 export default function EditMode({
   setMode,
+  data,
+  setData,
 }: {
   setMode: (mode: 'edit' | 'view') => void;
+  data: MandaratData;
+  setData: (data: MandaratData) => void;
 }) {
-  const [data, setData] = useState<MandaratData>({});
-
   // Get box value
   const getValue = (cardIndex: number, boxIndex: number) => {
     return data[`${cardIndex}-${boxIndex}`] || '';
@@ -46,21 +44,6 @@ export default function EditMode({
       console.error('Failed to save data:', e);
     }
   };
-
-  const getSavedData = async () => {
-    const saved = await AsyncStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        setData(JSON.parse(saved));
-      } catch (e) {
-        console.error('Failed to parse saved data:', e);
-      }
-    }
-  };
-
-  useEffect(() => {
-    getSavedData();
-  }, []);
 
   return (
     <View className="flex-1 items-center bg-background">

@@ -1,22 +1,19 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { TouchableOpacity, useWindowDimensions, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import ViewCard from './card/ViewCard';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-
-interface MandaratData {
-  [key: string]: string;
-}
+import { MandaratData } from '../types/dataType';
 
 const GRID_HORIZONTAL_PADDING = 32;
 
 export default function ViewMode({
   setMode,
+  data,
 }: {
   setMode: (mode: 'edit' | 'view') => void;
+  data: MandaratData;
 }) {
-  const [data, setData] = useState<MandaratData>({});
   const { width: windowWidth } = useWindowDimensions();
 
   const { gridWidth, cardSize } = useMemo(() => {
@@ -28,15 +25,6 @@ export default function ViewMode({
     };
   }, [windowWidth]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const storedData = await AsyncStorage.getItem('madaratData');
-      if (storedData) {
-        setData(JSON.parse(storedData));
-      }
-    };
-    getData();
-  }, []);
   // Get box value
   const getValue = (cardIndex: number, boxIndex: number) => {
     return data[`${cardIndex}-${boxIndex}`] || '';
