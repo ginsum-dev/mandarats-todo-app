@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { cardColors, boxColors } from '../../lib/colors';
 import BottomSheet from '../BottomSheet';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { ActionSheetRef } from 'react-native-actions-sheet';
 
 interface CardProps {
   getValue: (cardIndex: number, boxIndex: number) => string;
-  onCardPress?: () => void;
-  onBoxPress?: (boxIndex: number) => void;
   maxWidth?: number;
   handleChange: (key: string, value: string) => void;
+  setMode: (mode: 'edit' | 'view') => void;
 }
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -19,28 +20,43 @@ const BORDER_WIDTH = 2;
 
 export default function Card({
   getValue,
-  onCardPress,
-  onBoxPress,
   handleChange,
   maxWidth = CARD_MAX_WIDTH,
+  setMode,
 }: CardProps) {
   const [cardIndex, setCardIndex] = useState(4);
+  const [bottomSheetValues, setBottomSheetValues] = useState<{
+    [key: number]: string;
+  }>({});
+
   const cardWidth = Math.min(maxWidth, screenWidth - 32);
   const availableWidth = cardWidth - PADDING * 2 - BORDER_WIDTH * 2;
   const boxSize = (availableWidth - GAP * 2) / 3;
+  const bottomSheetRef = useRef<ActionSheetRef>(null);
 
-  const handleCardPress = () => {
-    if (cardIndex !== 4 && onCardPress) {
-      onCardPress();
-    }
+  const handleBottomSheetOpen = () => {
+    const initial: { [key: number]: string } = {};
+    const boxOrder = [4, 0, 1, 2, 3, 5, 6, 7, 8];
+    boxOrder.forEach(boxIndex => {
+      initial[boxIndex] = getValue(cardIndex, boxIndex);
+    });
+    setBottomSheetValues(initial);
+    bottomSheetRef.current?.show();
   };
 
   const handleBoxPress = (boxIndex: number) => {
     if (cardIndex === 4) {
-      setCardIndex(boxIndex);
-      if (onBoxPress) {
-        onBoxPress(boxIndex);
+      if (boxIndex === 4) {
+        handleBottomSheetOpen();
+      } else {
+        setCardIndex(boxIndex);
       }
+    }
+  };
+
+  const handleCardPress = () => {
+    if (cardIndex !== 4) {
+      handleBottomSheetOpen();
     }
   };
 
@@ -120,20 +136,27 @@ export default function Card({
       </TouchableOpacity>
       <View className="flex-row justify-center gap-2">
         <BottomSheet
+          ref={bottomSheetRef}
           cardIndex={cardIndex}
-          getValue={getValue}
           handleChange={handleChange}
+          values={bottomSheetValues}
+          setValues={setBottomSheetValues}
+          handleBottomSheetOpen={handleBottomSheetOpen}
         />
         {cardIndex !== 4 && (
           <TouchableOpacity
             onPress={() => setCardIndex(4)}
-            className="mt-5 bg-rose-300 rounded-lg py-3 px-6 items-center"
+            className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
           >
-            <Text className="text-white font-semibold text-base">
-              중앙카드로 이동
-            </Text>
+            <MaterialIcon name="undo-variant" size={20} color="black" />
           </TouchableOpacity>
         )}
+        <TouchableOpacity
+          onPress={() => setMode('view')}
+          className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
+        >
+          <MaterialIcon name="grid" size={20} color="black" />
+        </TouchableOpacity>
       </View>
     </View>
   );

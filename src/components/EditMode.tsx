@@ -64,13 +64,7 @@ export default function EditMode({
 
   return (
     <View className="flex-1 items-center bg-background">
-      <Card
-        getValue={getValue}
-        onCardPress={() => {}}
-        onBoxPress={() => {}}
-        handleChange={handleChange}
-        setMode={setMode}
-      />
+      <Card getValue={getValue} handleChange={handleChange} setMode={setMode} />
     </View>
   );
 }
