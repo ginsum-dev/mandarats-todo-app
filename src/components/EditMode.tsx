@@ -9,7 +9,11 @@ interface MandaratData {
 
 const STORAGE_KEY = 'madaratData';
 
-export default function EditMode() {
+export default function EditMode({
+  setMode,
+}: {
+  setMode: (mode: 'edit' | 'view') => void;
+}) {
   const [data, setData] = useState<MandaratData>({});
 
   // Get box value
@@ -65,6 +69,7 @@ export default function EditMode() {
         onCardPress={() => {}}
         onBoxPress={() => {}}
         handleChange={handleChange}
+        setMode={setMode}
       />
     </View>
   );

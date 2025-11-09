@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useWindowDimensions, View } from 'react-native';
+import { TouchableOpacity, useWindowDimensions, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import ViewCard from './card/ViewCard';
+import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface MandaratData {
   [key: string]: string;
@@ -10,7 +11,11 @@ interface MandaratData {
 
 const GRID_HORIZONTAL_PADDING = 32;
 
-export default function ViewMode() {
+export default function ViewMode({
+  setMode,
+}: {
+  setMode: (mode: 'edit' | 'view') => void;
+}) {
   const [data, setData] = useState<MandaratData>({});
   const { width: windowWidth } = useWindowDimensions();
 
@@ -54,6 +59,12 @@ export default function ViewMode() {
           getValue={getValue}
         />
       ))}
+      <TouchableOpacity
+        onPress={() => setMode('edit')}
+        className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
+      >
+        <MaterialIcon name="crop-square" size={20} color="black" />
+      </TouchableOpacity>
     </View>
   );
 }
