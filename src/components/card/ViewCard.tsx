@@ -27,7 +27,7 @@ type Props = {
 
 export default function ViewCard({ cardIndex, cardSize, getValue }: Props) {
   const availableWidth = Math.max(
-    cardSize - CARD_BORDER_WIDTH * 2 - CARD_PADDING * 2,
+    cardSize - CARD_BORDER_WIDTH * 2 - CARD_PADDING * 2 - 1,
     0,
   );
   const boxSize =
