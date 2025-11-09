@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 import Card from './card/EditCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -20,6 +20,7 @@ export default function EditMode({
   };
 
   const handleChange = async (key: string, value: string) => {
+    const previousData = { ...data };
     const newData = { ...data, [key]: value };
 
     // 중앙 카드의 외곽 박스가 변경되면 해당 외곽 카드의 중앙 박스도 동기화
@@ -42,6 +43,11 @@ export default function EditMode({
       await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(newData));
     } catch (e) {
       console.error('Failed to save data:', e);
+      Alert.alert(
+        '저장 실패',
+        '변경 내용을 저장하는 동안 문제가 발생했습니다. 다시 시도해 주세요.',
+      );
+      setData(previousData);
     }
   };
 
