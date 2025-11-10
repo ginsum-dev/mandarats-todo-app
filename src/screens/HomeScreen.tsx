@@ -14,10 +14,11 @@ export default function HomeScreen({
   const [mode, setMode] = useState<'edit' | 'view'>('edit');
 
   return (
-    <View className="flex-1 items-center bg-background pt-[80px]">
-      <Text className="text-3xl sm:text-4xl font-bold text-center my-10 text-foreground text-zinc-700">
-        Mandarat
+    <View className="flex-1 items-center bg-background pt-[60px]">
+      <Text className="text-3xl sm:text-4xl font-bold text-center mt-10 text-foreground text-zinc-700">
+        My Manda
       </Text>
+
       <View className="flex-col items-center justify-center">
         {mode === 'edit' ? (
           <EditMode setMode={setMode} data={data} setData={setData} />

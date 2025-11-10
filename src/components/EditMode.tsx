@@ -1,9 +1,11 @@
-import { Alert, View } from 'react-native';
+import { Alert, Dimensions, Text, View } from 'react-native';
 import Card from './card/EditCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { MandaratData } from '../types/dataType';
 import { STORAGE_KEY } from '../lib/constant';
+
+const { width: screenWidth } = Dimensions.get('window');
 
 export default function EditMode({
   setMode,
@@ -53,7 +55,36 @@ export default function EditMode({
 
   return (
     <View className="flex-1 items-center bg-background">
+      <View
+        className="flex-col items-center justify-center mt-4 p-4 bg-zinc-100 rounded-md"
+        style={{
+          width: screenWidth - 32,
+        }}
+      >
+        <Text className="text-sm text-zinc-500">
+          가장 중앙 칸에 달성하고 싶은 핵심 목표를 작성합니다
+        </Text>
+        <Text className="text-sm text-zinc-500">
+          중앙 목표를 둘러싼 8개 칸에 하위 목표를 작성합니다
+        </Text>
+        <Text className="text-sm text-zinc-500">
+          하위 목표를 터치하여 목표를 달성하기 위한 실천 항목을 작성합니다
+        </Text>
+      </View>
       <Card getValue={getValue} handleChange={handleChange} setMode={setMode} />
+      <View
+        className="flex-row items-center justify-center mt-16 p-4 bg-zinc-100 rounded-md"
+        style={{
+          width: screenWidth - 32,
+        }}
+      >
+        <Text className="text-sm text-zinc-500">
+          만다라트는 일본 디자이너 이마이즈미 히로아키가 개발한 목표 달성 및
+          아이디어 발상 도구입니다. 중심 목표를 8개의 하위 목표로 나누고, 각
+          하위 목표를 다시 8개의 실행 과제로 세분화하여 총 64개의 구체적인 실천
+          항목을 만들어냅니다.
+        </Text>
+      </View>
     </View>
   );
 }

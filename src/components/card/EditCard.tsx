@@ -13,23 +13,17 @@ interface CardProps {
 }
 
 const { width: screenWidth } = Dimensions.get('window');
-const CARD_MAX_WIDTH = 286;
 const GAP = 4;
 const PADDING = 6;
 const BORDER_WIDTH = 2;
 
-export default function Card({
-  getValue,
-  handleChange,
-  maxWidth = CARD_MAX_WIDTH,
-  setMode,
-}: CardProps) {
+export default function Card({ getValue, handleChange, setMode }: CardProps) {
   const [cardIndex, setCardIndex] = useState(4);
   const [bottomSheetValues, setBottomSheetValues] = useState<{
     [key: number]: string;
   }>({});
 
-  const cardWidth = Math.min(maxWidth, screenWidth - 32);
+  const cardWidth = screenWidth - 32;
   const availableWidth = cardWidth - PADDING * 2 - BORDER_WIDTH * 2;
   const boxSize = (availableWidth - GAP * 2) / 3;
   const bottomSheetRef = useRef<ActionSheetRef>(null);
