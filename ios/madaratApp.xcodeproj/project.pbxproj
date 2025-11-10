@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC59F97974E9F3330ECA0E4 /* libPods-madaratApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BCB66EA8B705D170CCC7BD3 /* libPods-madaratApp.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		23A49DFB2072DC56C060AB83 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
-		519D19F2BC69170AC4416411 /* libPods-madaratApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09179D4433474AD009B43296 /* libPods-madaratApp.a */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		990357BA68D945E6AAF6534F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F055FB6813BB4771B2AD4867 /* Colors.xcassets */; };
@@ -17,18 +17,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		09179D4433474AD009B43296 /* libPods-madaratApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-madaratApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* madaratApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = madaratApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = madaratApp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = madaratApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = madaratApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		29D351E750087E45013A42B6 /* Pods-madaratApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-madaratApp.debug.xcconfig"; path = "Target Support Files/Pods-madaratApp/Pods-madaratApp.debug.xcconfig"; sourceTree = "<group>"; };
-		46A21A00A31947FFB00EE2B1 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = madaratApp/BootSplash.storyboard; sourceTree = "<group>"; };
+		46A21A00A31947FFB00EE2B1 /* BootSplash.storyboard */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = BootSplash.storyboard; path = madaratApp/BootSplash.storyboard; sourceTree = "<group>"; };
+		5BCB66EA8B705D170CCC7BD3 /* libPods-madaratApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-madaratApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = madaratApp/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = madaratApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D9F3B60234A93A3E4FA11C84 /* Pods-madaratApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-madaratApp.release.xcconfig"; path = "Target Support Files/Pods-madaratApp/Pods-madaratApp.release.xcconfig"; sourceTree = "<group>"; };
+		97BE21BDD4B0A5BFCFD64960 /* Pods-madaratApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-madaratApp.debug.xcconfig"; path = "Target Support Files/Pods-madaratApp/Pods-madaratApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C4D21B8EC1CE7F4702B75F54 /* Pods-madaratApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-madaratApp.release.xcconfig"; path = "Target Support Files/Pods-madaratApp/Pods-madaratApp.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F055FB6813BB4771B2AD4867 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = madaratApp/Colors.xcassets; sourceTree = "<group>"; };
+		F055FB6813BB4771B2AD4867 /* Colors.xcassets */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = madaratApp/Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				519D19F2BC69170AC4416411 /* libPods-madaratApp.a in Frameworks */,
+				0AC59F97974E9F3330ECA0E4 /* libPods-madaratApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				09179D4433474AD009B43296 /* libPods-madaratApp.a */,
+				5BCB66EA8B705D170CCC7BD3 /* libPods-madaratApp.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,8 +98,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29D351E750087E45013A42B6 /* Pods-madaratApp.debug.xcconfig */,
-				D9F3B60234A93A3E4FA11C84 /* Pods-madaratApp.release.xcconfig */,
+				97BE21BDD4B0A5BFCFD64960 /* Pods-madaratApp.debug.xcconfig */,
+				C4D21B8EC1CE7F4702B75F54 /* Pods-madaratApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -111,13 +111,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "madaratApp" */;
 			buildPhases = (
-				ABDAD011163A0EF0C781A73C /* [CP] Check Pods Manifest.lock */,
+				05CB0EDE6E2DD2038E5275BE /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				3D7135B12181BCC698819295 /* [CP] Embed Pods Frameworks */,
-				972C63D39242B74FAAAE6FF8 /* [CP] Copy Pods Resources */,
+				633BAA8ED542289CA71A993F /* [CP] Embed Pods Frameworks */,
+				1D5E14F3FAB7D1476C95C371 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,41 +191,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		3D7135B12181BCC698819295 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		972C63D39242B74FAAAE6FF8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ABDAD011163A0EF0C781A73C /* [CP] Check Pods Manifest.lock */ = {
+		05CB0EDE6E2DD2038E5275BE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -247,6 +213,48 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1D5E14F3FAB7D1476C95C371 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		633BAA8ED542289CA71A993F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-madaratApp/Pods-madaratApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -263,11 +271,12 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29D351E750087E45013A42B6 /* Pods-madaratApp.debug.xcconfig */;
+			baseConfigurationReference = 97BE21BDD4B0A5BFCFD64960 /* Pods-madaratApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7W86G8RRP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = madaratApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -291,11 +300,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9F3B60234A93A3E4FA11C84 /* Pods-madaratApp.release.xcconfig */;
+			baseConfigurationReference = C4D21B8EC1CE7F4702B75F54 /* Pods-madaratApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = W7W86G8RRP;
 				INFOPLIST_FILE = madaratApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
