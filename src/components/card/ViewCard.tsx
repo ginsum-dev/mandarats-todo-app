@@ -5,8 +5,8 @@ import { boxColors, cardColors } from '../../lib/colors';
 
 const CARD_BORDER_WIDTH = 1;
 const BOX_BORDER_WIDTH = 1;
-const CARD_PADDING = 2;
-const BOX_GAP = 2;
+const CARD_PADDING = 1;
+const BOX_GAP = 1;
 
 const CELL_MARGIN_STYLES = Array.from(
   { length: 9 },
@@ -27,7 +27,7 @@ type Props = {
 
 export default function ViewCard({ cardIndex, cardSize, getValue }: Props) {
   const availableWidth = Math.max(
-    cardSize - CARD_BORDER_WIDTH * 2 - CARD_PADDING * 2 - 1,
+    cardSize - CARD_BORDER_WIDTH * 2 - CARD_PADDING * 2 - BOX_GAP,
     0,
   );
   const boxSize =

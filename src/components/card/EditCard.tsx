@@ -104,11 +104,11 @@ export default function Card({ getValue, handleChange }: CardProps) {
                     <Text
                       className={`w-full text-center text-zinc-700 ${
                         isCenter && boxIndex === 4
-                          ? 'text-2xl'
+                          ? 'text-2xl font-semibold'
                           : isCenter && boxIndex !== 4
-                          ? 'text-xl'
+                          ? 'text-xl font-medium'
                           : !isCenter && boxIndex === 4
-                          ? 'text-xl'
+                          ? 'text-xl font-semibold'
                           : 'text-base'
                       }`}
                       numberOfLines={3}

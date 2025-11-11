@@ -55,18 +55,18 @@ export default function EditMode({
     <View className="flex-1 items-center bg-background">
       <Card getValue={getValue} handleChange={handleChange} />
       <View
-        className="flex-col items-start justify-center mt-6 p-4 bg-slate-100 rounded-md"
+        className="flex-col items-start justify-center mt-6 p-5 bg-slate-100 rounded-md"
         style={{
           width: screenWidth - 32,
         }}
       >
-        <Text className="text-sm text-zinc-500">
+        <Text className="text-sm text-zinc-600 mb-1">
           1. 중앙에 핵심 목표를 적으세요
         </Text>
-        <Text className="text-sm text-zinc-500">
+        <Text className="text-sm text-zinc-600 mb-1">
           2. 주변 8칸에 목표 달성을 위한 하위 목표를 작성하세요
         </Text>
-        <Text className="text-sm text-zinc-500">
+        <Text className="text-sm text-zinc-600">
           3. 각 하위 목표를 펼쳐 구체적인 실행 과제 8개씩 채워보세요
         </Text>
       </View>

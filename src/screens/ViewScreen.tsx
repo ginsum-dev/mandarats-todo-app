@@ -67,10 +67,10 @@ export default function ViewScreen() {
       <View className="absolute bottom-20 left-6">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
-          className="bg-zinc-200 rounded-full w-12 h-12 items-center justify-center shadow pl-1"
+          className="bg-zinc-200 rounded-full w-16 h-16 items-center justify-center shadow pl-1"
           activeOpacity={0.8}
         >
-          <MaterialIcon name="arrow-back-ios" size={16} color="black" />
+          <MaterialIcon name="arrow-back-ios" size={18} color="black" />
         </TouchableOpacity>
       </View>
     </View>
