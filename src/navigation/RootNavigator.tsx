@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStaticNavigation } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import GuideScreen from '../screens/GuideScreen';
-import { createStaticNavigation } from '@react-navigation/native';
+import ViewScreen from '../screens/ViewScreen';
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
@@ -18,7 +19,14 @@ const RootStack = createNativeStackNavigator({
       screen: GuideScreen,
       options: {
         title: 'Guide',
-        headerBackVisible: false,
+        headerShown: false,
+      },
+    },
+    ViewScreen: {
+      screen: ViewScreen,
+      options: {
+        title: 'ViewScreen',
+        headerShown: false,
       },
     },
   },

@@ -1,16 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
-import { cardColors, boxColors } from '../../lib/colors';
-import BottomSheet from '../BottomSheet';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ActionSheetRef } from 'react-native-actions-sheet';
 import { useNavigation } from '@react-navigation/native';
+import { cardColors, boxColors } from '../../lib/colors';
+import BottomSheet from '../BottomSheet';
 
 interface CardProps {
   getValue: (cardIndex: number, boxIndex: number) => string;
   maxWidth?: number;
   handleChange: (key: string, value: string) => void;
-  setMode: (mode: 'edit' | 'view') => void;
 }
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -18,7 +17,7 @@ const GAP = 4;
 const PADDING = 6;
 const BORDER_WIDTH = 2;
 
-export default function Card({ getValue, handleChange, setMode }: CardProps) {
+export default function Card({ getValue, handleChange }: CardProps) {
   const [cardIndex, setCardIndex] = useState(4);
   const [bottomSheetValues, setBottomSheetValues] = useState<{
     [key: number]: string;
@@ -147,7 +146,7 @@ export default function Card({ getValue, handleChange, setMode }: CardProps) {
           </TouchableOpacity>
         )}
         <TouchableOpacity
-          onPress={() => setMode('view')}
+          onPress={() => navigation.navigate('ViewScreen' as never as never)}
           className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
         >
           <MaterialIcon name="grid" size={20} color="#333333" />
