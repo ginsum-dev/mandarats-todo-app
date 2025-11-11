@@ -77,7 +77,7 @@ export default function ViewCard({ cardIndex, cardSize, getValue }: Props) {
             >
               {value ? (
                 <Text
-                  className={`w-full text-center text-zinc-700 text-sm ${
+                  className={`w-full text-center text-zinc-700 text-[10px] ${
                     isCenter && boxIndex === 4
                       ? 'font-semibold'
                       : isCenter && boxIndex !== 4
@@ -114,10 +114,10 @@ const styles = StyleSheet.create({
     borderWidth: BOX_BORDER_WIDTH,
   },
   valueText: {
-    lineHeight: 15,
+    lineHeight: 12,
   },
   valueTextSmall: {
-    lineHeight: 10,
+    lineHeight: 11,
     fontSize: 10,
   },
 });

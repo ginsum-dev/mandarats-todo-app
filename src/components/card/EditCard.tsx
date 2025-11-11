@@ -4,6 +4,7 @@ import { cardColors, boxColors } from '../../lib/colors';
 import BottomSheet from '../BottomSheet';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ActionSheetRef } from 'react-native-actions-sheet';
+import { useNavigation } from '@react-navigation/native';
 
 interface CardProps {
   getValue: (cardIndex: number, boxIndex: number) => string;
@@ -22,7 +23,7 @@ export default function Card({ getValue, handleChange, setMode }: CardProps) {
   const [bottomSheetValues, setBottomSheetValues] = useState<{
     [key: number]: string;
   }>({});
-
+  const navigation = useNavigation();
   const cardWidth = screenWidth - 32;
   const availableWidth = cardWidth - PADDING * 2 - BORDER_WIDTH * 2;
   const boxSize = (availableWidth - GAP * 2) / 3;
@@ -94,7 +95,7 @@ export default function Card({ getValue, handleChange, setMode }: CardProps) {
                   activeOpacity={isEditable ? 0.7 : 1}
                   onPress={() => handleBoxPress(boxIndex)}
                   disabled={!isCenter}
-                  className={`rounded border overflow-hidden px-1 items-center justify-center ${boxColorClass}`}
+                  className={`rounded border overflow-hidden px-2.5 items-center justify-center ${boxColorClass}`}
                   style={{
                     width: boxSize,
                     height: boxSize,
@@ -142,15 +143,27 @@ export default function Card({ getValue, handleChange, setMode }: CardProps) {
             onPress={() => setCardIndex(4)}
             className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
           >
-            <MaterialIcon name="undo-variant" size={20} color="black" />
+            <MaterialIcon name="arrow-u-left-top" size={20} color="#333333" />
           </TouchableOpacity>
         )}
         <TouchableOpacity
           onPress={() => setMode('view')}
           className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
         >
-          <MaterialIcon name="grid" size={20} color="black" />
+          <MaterialIcon name="grid" size={20} color="#333333" />
         </TouchableOpacity>
+        {cardIndex === 4 && (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Guide' as never as never)}
+            className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
+          >
+            <MaterialIcon
+              name="information-outline"
+              size={20}
+              color="#333333"
+            />
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );

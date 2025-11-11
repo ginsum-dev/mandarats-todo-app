@@ -1,16 +1,29 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
+import GuideScreen from '../screens/GuideScreen';
+import { createStaticNavigation } from '@react-navigation/native';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const RootStack = createNativeStackNavigator({
+  initialRouteName: 'Home',
+  screenOptions: {},
+  screens: {
+    Home: {
+      screen: HomeScreen,
+      options: {
+        title: '',
+        headerShown: false,
+      },
+    },
+    Guide: {
+      screen: GuideScreen,
+      options: {
+        title: 'Guide',
+        headerBackVisible: false,
+      },
+    },
+  },
+});
 
-type RootStackParamList = {
-  Home: undefined;
-};
+const Navigation = createStaticNavigation(RootStack);
 
-export default function RootNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-    </Stack.Navigator>
-  );
-}
+export default Navigation;

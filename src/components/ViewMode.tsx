@@ -1,19 +1,12 @@
 import { useMemo } from 'react';
-import { TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 
 import ViewCard from './card/ViewCard';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { MandaratData } from '../types/dataType';
 
 const GRID_HORIZONTAL_PADDING = 32;
 
-export default function ViewMode({
-  setMode,
-  data,
-}: {
-  setMode: (mode: 'edit' | 'view') => void;
-  data: MandaratData;
-}) {
+export default function ViewMode({ data }: { data: MandaratData }) {
   const { width: windowWidth } = useWindowDimensions();
 
   const { gridWidth, cardSize } = useMemo(() => {
@@ -47,12 +40,6 @@ export default function ViewMode({
           getValue={getValue}
         />
       ))}
-      <TouchableOpacity
-        onPress={() => setMode('edit')}
-        className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
-      >
-        <MaterialIcon name="crop-square" size={20} color="black" />
-      </TouchableOpacity>
     </View>
   );
 }

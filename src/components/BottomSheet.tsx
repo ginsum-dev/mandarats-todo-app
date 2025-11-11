@@ -44,7 +44,7 @@ const BottomSheet = forwardRef<ActionSheetRef, BottomSheetProps>(
           onPress={handleBottomSheetOpen}
           className={`mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center`}
         >
-          <OctIcon name="pencil" size={20} color="black" />
+          <OctIcon name="pencil" size={20} color="#333333" />
         </TouchableOpacity>
         {/* BottomSheet */}
         <ActionSheet

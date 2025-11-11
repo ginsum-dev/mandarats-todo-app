@@ -55,24 +55,24 @@ export default function EditMode({
 
   return (
     <View className="flex-1 items-center bg-background">
+      <Card getValue={getValue} handleChange={handleChange} setMode={setMode} />
       <View
-        className="flex-col items-center justify-center mt-4 p-4 bg-zinc-100 rounded-md"
+        className="flex-col items-start justify-center mt-6 p-4 bg-slate-100 rounded-md"
         style={{
           width: screenWidth - 32,
         }}
       >
         <Text className="text-sm text-zinc-500">
-          가장 중앙 칸에 달성하고 싶은 핵심 목표를 작성합니다
+          1. 중앙에 핵심 목표를 적으세요
         </Text>
         <Text className="text-sm text-zinc-500">
-          중앙 목표를 둘러싼 8개 칸에 하위 목표를 작성합니다
+          2. 주변 8칸에 목표 달성을 위한 하위 목표를 작성하세요
         </Text>
         <Text className="text-sm text-zinc-500">
-          하위 목표를 터치하여 목표를 달성하기 위한 실천 항목을 작성합니다
+          3. 각 하위 목표를 펼쳐 구체적인 실행 과제 8개씩 채워보세요
         </Text>
       </View>
-      <Card getValue={getValue} handleChange={handleChange} setMode={setMode} />
-      <View
+      {/* <View
         className="flex-row items-center justify-center mt-16 p-4 bg-zinc-100 rounded-md"
         style={{
           width: screenWidth - 32,
@@ -84,7 +84,7 @@ export default function EditMode({
           하위 목표를 다시 8개의 실행 과제로 세분화하여 총 64개의 구체적인 실천
           항목을 만들어냅니다.
         </Text>
-      </View>
+      </View> */}
     </View>
   );
 }
