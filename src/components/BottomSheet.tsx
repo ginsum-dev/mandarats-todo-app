@@ -51,7 +51,8 @@ const BottomSheet = forwardRef<ActionSheetRef, BottomSheetProps>(
           ref={ref}
           useBottomSafeAreaPadding
           keyboardHandlerEnabled={false}
-          gestureEnabled
+          // gestureEnabled
+          closeOnPressBack={false}
         >
           <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
