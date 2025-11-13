@@ -7,7 +7,11 @@ import ErrorBoundary from '../components/common/ErrorBoundary';
 import { STORAGE_KEY } from '../lib/constant';
 import { MandaratData } from '../types/dataType';
 
-export default function HomeScreen() {
+interface HomeScreenProps {
+  route: { params?: any };
+}
+
+export default function HomeScreen({ route }: HomeScreenProps) {
   const [data, setData] = useState<MandaratData>({});
   const [reloadKey, setReloadKey] = useState(0);
 
@@ -34,6 +38,8 @@ export default function HomeScreen() {
     });
   }, [reloadKey]);
 
+  console.log(route.params);
+
   return (
     <ErrorBoundary
       onReset={() => setReloadKey(prev => prev + 1)}
@@ -45,7 +51,11 @@ export default function HomeScreen() {
           My Manda
         </Text>
 
-        <EditMode data={data} setData={setData} />
+        <EditMode
+          data={data}
+          setData={setData}
+          index={route.params?.cardIndex}
+        />
       </View>
     </ErrorBoundary>
   );

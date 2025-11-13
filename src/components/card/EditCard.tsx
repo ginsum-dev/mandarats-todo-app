@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ActionSheetRef } from 'react-native-actions-sheet';
@@ -10,6 +10,7 @@ interface CardProps {
   getValue: (cardIndex: number, boxIndex: number) => string;
   maxWidth?: number;
   handleChange: (key: string, value: string) => void;
+  index: number;
 }
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -17,7 +18,7 @@ const GAP = 4;
 const PADDING = 6;
 const BORDER_WIDTH = 2;
 
-export default function Card({ getValue, handleChange }: CardProps) {
+export default function Card({ getValue, handleChange, index }: CardProps) {
   const [cardIndex, setCardIndex] = useState(4);
   const [bottomSheetValues, setBottomSheetValues] = useState<{
     [key: number]: string;
@@ -27,6 +28,12 @@ export default function Card({ getValue, handleChange }: CardProps) {
   const availableWidth = cardWidth - PADDING * 2 - BORDER_WIDTH * 2;
   const boxSize = (availableWidth - GAP * 2) / 3;
   const bottomSheetRef = useRef<ActionSheetRef>(null);
+
+  useEffect(() => {
+    if (index !== undefined) {
+      setCardIndex(index);
+    }
+  }, [index]);
 
   const handleBottomSheetOpen = () => {
     const initial: { [key: number]: string } = {};
@@ -43,7 +50,9 @@ export default function Card({ getValue, handleChange }: CardProps) {
       if (boxIndex === 4) {
         handleBottomSheetOpen();
       } else {
+        console.log('boxIndex', boxIndex);
         setCardIndex(boxIndex);
+        navigation.setParams({ cardIndex: undefined } as never);
       }
     }
   };
@@ -92,7 +101,10 @@ export default function Card({ getValue, handleChange }: CardProps) {
               >
                 <TouchableOpacity
                   activeOpacity={isEditable ? 0.7 : 1}
-                  onPress={() => handleBoxPress(boxIndex)}
+                  onPress={() => {
+                    handleBoxPress(boxIndex);
+                    navigation.setParams(undefined);
+                  }}
                   disabled={!isCenter}
                   className={`rounded border overflow-hidden px-2.5 items-center justify-center ${boxColorClass}`}
                   style={{
@@ -139,7 +151,10 @@ export default function Card({ getValue, handleChange }: CardProps) {
         />
         {cardIndex !== 4 && (
           <TouchableOpacity
-            onPress={() => setCardIndex(4)}
+            onPress={() => {
+              setCardIndex(4);
+              navigation.setParams(undefined);
+            }}
             className="mt-5 bg-zinc-200 rounded-full w-12 h-12 items-center justify-center"
           >
             <MaterialIcon name="arrow-u-left-top" size={20} color="#333333" />

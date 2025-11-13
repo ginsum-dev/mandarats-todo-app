@@ -10,9 +10,11 @@ const { width: screenWidth } = Dimensions.get('window');
 export default function EditMode({
   data,
   setData,
+  index,
 }: {
   data: MandaratData;
   setData: (data: MandaratData) => void;
+  index: number;
 }) {
   // Get box value
   const getValue = (cardIndex: number, boxIndex: number) => {
@@ -53,7 +55,7 @@ export default function EditMode({
 
   return (
     <View className="flex-1 items-center bg-background">
-      <Card getValue={getValue} handleChange={handleChange} />
+      <Card getValue={getValue} handleChange={handleChange} index={index} />
       <View
         className="flex-col items-start justify-center mt-6 p-5 bg-slate-100 rounded-md"
         style={{
