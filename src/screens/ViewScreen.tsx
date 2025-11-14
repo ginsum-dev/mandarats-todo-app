@@ -52,7 +52,7 @@ export default function ViewScreen() {
   return (
     <View className="flex-1 bg-slate-50 px-6" style={styles.content}>
       <Text className="text-3xl sm:text-4xl font-bold text-center mt-10 mb-8 text-foreground text-zinc-700">
-        My Manda
+        MandaPlan
       </Text>
       <View className="flex-row flex-wrap" style={containerStyle}>
         {Array.from({ length: 9 }).map((_, cardIndex) => (

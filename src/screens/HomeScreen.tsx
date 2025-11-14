@@ -48,7 +48,7 @@ export default function HomeScreen({ route }: HomeScreenProps) {
     >
       <View className="flex-1 bg-slate-50 pt-[60px] px-6">
         <Text className="text-3xl sm:text-4xl font-bold text-center mt-10 mb-8 text-foreground text-zinc-700">
-          My Manda
+          MandaPlan
         </Text>
 
         <EditMode
