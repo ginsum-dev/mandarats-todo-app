@@ -6,6 +6,7 @@ import EditMode from '../components/EditMode';
 import ErrorBoundary from '../components/common/ErrorBoundary';
 import { STORAGE_KEY } from '../lib/constant';
 import { MandaratData } from '../types/dataType';
+import { loadAndMigrateData } from '../lib/migration';
 
 interface HomeScreenProps {
   route: { params?: any };
@@ -20,9 +21,9 @@ export default function HomeScreen({ route }: HomeScreenProps) {
       try {
         // 저장된 만다라트 데이터 불러오기
         const storedData = await AsyncStorage.getItem(STORAGE_KEY);
-        if (storedData) {
-          setData(JSON.parse(storedData));
-        }
+        // 마이그레이션 포함하여 로드
+        const migratedData = await loadAndMigrateData(storedData);
+        setData(migratedData);
       } catch (error) {
         console.error('초기화 에러:', error);
         Alert.alert(

@@ -2,8 +2,9 @@ import { Alert, Dimensions, Text, View } from 'react-native';
 import Card from './card/EditCard';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { MandaratData } from '../types/dataType';
+import { MandaratData, MandaratItem } from '../types/dataType';
 import { STORAGE_KEY } from '../lib/constant';
+import { getContent } from '../lib/dataHelper';
 
 const { width: screenWidth } = Dimensions.get('window');
 
@@ -18,12 +19,21 @@ export default function EditMode({
 }) {
   // Get box value
   const getValue = (cardIndex: number, boxIndex: number) => {
-    return data[`${cardIndex}-${boxIndex}`] || '';
+    return getContent(data, `${cardIndex}-${boxIndex}`);
   };
 
   const handleChange = async (key: string, value: string) => {
     const previousData = { ...data };
-    const newData = { ...data, [key]: value };
+    const newData = { ...data };
+
+    // 새 형식으로 업데이트
+    const existingItem = newData[key];
+    const updatedItem: MandaratItem = {
+      content: value,
+      isComplete: existingItem?.isComplete || false,
+      metadata: existingItem?.metadata,
+    };
+    newData[key] = updatedItem;
 
     // 중앙 카드의 외곽 박스가 변경되면 해당 외곽 카드의 중앙 박스도 동기화
     const [cardIndex, boxIndex] = key.split('-').map(Number);
@@ -31,13 +41,23 @@ export default function EditMode({
       // 중앙 카드의 외곽 박스이면, 해당 박스 인덱스와 같은 카드의 중앙 박스(4번)도 업데이트
       const targetCardIndex = boxIndex;
       const targetKey = `${targetCardIndex}-4`;
-      newData[targetKey] = value;
+      const targetExistingItem = newData[targetKey];
+      newData[targetKey] = {
+        content: value,
+        isComplete: targetExistingItem?.isComplete || false,
+        metadata: targetExistingItem?.metadata,
+      };
     }
     if (boxIndex === 4) {
       // 모바일 화면에서 중앙 박스가 변경되면 모든 카드의 중앙 박스도 동기화
       const targetCardIndex = cardIndex;
       const targetKey = `4-${targetCardIndex}`;
-      newData[targetKey] = value;
+      const targetExistingItem = newData[targetKey];
+      newData[targetKey] = {
+        content: value,
+        isComplete: targetExistingItem?.isComplete || false,
+        metadata: targetExistingItem?.metadata,
+      };
     }
 
     setData(newData);
@@ -70,6 +90,9 @@ export default function EditMode({
         </Text>
         <Text className="text-sm text-zinc-600">
           3. 각 하위 목표를 펼쳐 구체적인 실행 과제 8개씩 채워보세요
+        </Text>
+        <Text className="text-sm text-zinc-600">
+          4. 투두 탭에서 실행 과제를 체크해 보세요
         </Text>
       </View>
     </View>

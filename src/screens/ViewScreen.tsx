@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   Text,
-  TouchableOpacity,
+  // TouchableOpacity,
   useWindowDimensions,
   View,
   StyleSheet,
@@ -11,18 +11,21 @@ import ViewCard from '../components/card/ViewCard';
 import { MandaratData } from '../types/dataType';
 import { STORAGE_KEY } from '../lib/constant';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
+// import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+// import { useNavigation } from '@react-navigation/native';
+import { loadAndMigrateData } from '../lib/migration';
+import { getContent } from '../lib/dataHelper';
 
 const GRID_HORIZONTAL_PADDING = 32;
 
 export default function ViewScreen() {
   const [data, setData] = useState<MandaratData>({});
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   useEffect(() => {
     const getStoredData = async () => {
       const storedData = await AsyncStorage.getItem(STORAGE_KEY);
-      setData(JSON.parse(storedData || '{}'));
+      const migratedData = await loadAndMigrateData(storedData);
+      setData(migratedData);
     };
     getStoredData();
   }, []);
@@ -39,7 +42,7 @@ export default function ViewScreen() {
 
   // Get box value
   const getValue = (cardIndex: number, boxIndex: number) => {
-    return data[`${cardIndex}-${boxIndex}`] || '';
+    return getContent(data, `${cardIndex}-${boxIndex}`);
   };
   const containerStyle = useMemo(
     () => ({
@@ -64,7 +67,7 @@ export default function ViewScreen() {
           />
         ))}
       </View>
-      <View className="absolute bottom-20 left-6">
+      {/* <View className="absolute bottom-20 left-6">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="bg-zinc-200 rounded-full w-16 h-16 items-center justify-center shadow pl-1"
@@ -72,7 +75,7 @@ export default function ViewScreen() {
         >
           <MaterialIcon name="arrow-back-ios" size={18} color="black" />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
