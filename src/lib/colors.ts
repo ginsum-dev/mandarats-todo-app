@@ -23,3 +23,15 @@ export const cardColors = [
   'bg-sky-100 border-sky-200', // Card 7
   'bg-emerald-100 border-emerald-200', // Card 8
 ];
+
+export const todoColors = [
+  'bg-red-100 ', // Card 0
+  'bg-orange-100 ', // Card 1
+  'bg-yellow-100 ', // Card 2
+  'bg-purple-100 ', // Card 3
+  'bg-rose-400 ', // Card 4 (center - main goal)
+  'bg-lime-100 ', // Card 5
+  'bg-indigo-100 ', // Card 6
+  'bg-sky-100 ', // Card 7
+  'bg-emerald-100', // Card 8
+];

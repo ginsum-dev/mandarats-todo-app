@@ -1,13 +1,7 @@
 import { ReactNode } from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+// import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 type SectionProps = {
   title: string;
@@ -26,7 +20,6 @@ const Section = ({ title, subtitle, children }: SectionProps) => (
 );
 
 export default function GuideScreen() {
-  const navigation = useNavigation();
   const usageSteps = [
     {
       title: '1단계. 핵심 목표 설정',
@@ -71,6 +64,11 @@ export default function GuideScreen() {
       title: '카드 전체 보기',
       description:
         '모든 카드를 한 번에 볼 수 있어요. 중앙 목표와 주변 목표를 쉽게 파악할 수 있어요.',
+    },
+    {
+      title: '투두 탭',
+      description:
+        '실행 과제를 체크해 보세요. 체크한 과제는 완료 상태로 표시되어 쉽게 파악할 수 있어요.',
     },
   ];
 
@@ -142,7 +140,7 @@ export default function GuideScreen() {
         </Section>
       </ScrollView>
 
-      <View className="absolute bottom-20 left-6">
+      {/* <View className="absolute bottom-20 left-6">
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           className="bg-zinc-200 rounded-full w-16 h-16 items-center justify-center shadow pl-1"
@@ -150,7 +148,7 @@ export default function GuideScreen() {
         >
           <MaterialIcon name="arrow-back-ios" size={18} color="black" />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
